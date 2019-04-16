@@ -368,7 +368,7 @@ void wxSFShapeCanvas::_OnPaint(wxPaintEvent& event)
 		PrepareDC( paintDC );
 		PrepareDC( gdc );
 		
-#ifdef TRY_DIRECT2D
+#if (defined(TRY_DIRECT2D) && defined(__WXMSW__))
         wxGraphicsRenderer* renderer = wxGraphicsRenderer::GetDirect2DRenderer();
         wxGraphicsContext* pGC = renderer->CreateContext(paintDC);
         gdc.SetGraphicsContext(pGC);
